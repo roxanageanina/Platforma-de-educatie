@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="EducatieStiinteNaturale" Class="DataClassesDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-TORV8IU\SQLEXPRESS;Initial Catalog=EducatieStiinteNaturale;Integrated Security=True" SettingsObjectName="Platforma_de_educatie.Properties.Settings" SettingsPropertyName="EducatieStiinteNaturaleConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Intrebari" Member="Intrebaris">
+    <Type Name="Intrebari">
+      <Column Name="ID_Intrebare" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ID_Test" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TextIntrebare" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="Punctaj" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Association Name="Intrebari_Raspunsuri" Member="Raspunsuris" ThisKey="ID_Intrebare" OtherKey="ID_Intrebare" Type="Raspunsuri" />
+      <Association Name="Teste_Intrebari" Member="Teste" ThisKey="ID_Test" OtherKey="ID_Test" Type="Teste" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Materii" Member="Materiis">
+    <Type Name="Materii">
+      <Column Name="ID_Materie" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="NumeMaterie" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Descriere" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Association Name="Materii_Teste" Member="Testes" ThisKey="ID_Materie" OtherKey="ID_Materie" Type="Teste" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Raspunsuri" Member="Raspunsuris">
+    <Type Name="Raspunsuri">
+      <Column Name="ID_Raspuns" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ID_Intrebare" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TextRaspuns" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="EsteCorect" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="Intrebari_Raspunsuri" Member="Intrebari" ThisKey="ID_Intrebare" OtherKey="ID_Intrebare" Type="Intrebari" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Teste" Member="Testes">
+    <Type Name="Teste">
+      <Column Name="ID_Test" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="NumeTest" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="ID_Materie" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Autor" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DataCreare" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Teste_Intrebari" Member="Intrebaris" ThisKey="ID_Test" OtherKey="ID_Test" Type="Intrebari" />
+      <Association Name="Materii_Teste" Member="Materii" ThisKey="ID_Materie" OtherKey="ID_Materie" Type="Materii" IsForeignKey="true" />
+      <Association Name="Utilizatori_Teste" Member="Utilizatori" ThisKey="Autor" OtherKey="ID_Utilizator" Type="Utilizatori" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Utilizatori" Member="Utilizatoris">
+    <Type Name="Utilizatori">
+      <Column Name="ID_Utilizator" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Nume" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Prenume" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Username" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(150) NOT NULL" CanBeNull="false" />
+      <Column Name="Parola" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="TipCont" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="DataInregistrare" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Utilizatori_Teste" Member="Testes" ThisKey="ID_Utilizator" OtherKey="Autor" Type="Teste" />
+    </Type>
+  </Table>
+  <Function Name="dbo.AddUser" Method="AddUser">
+    <Parameter Name="Nume" Parameter="nume" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="Prenume" Parameter="prenume" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="Username" Parameter="username" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="Email" Parameter="email" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="Parola" Parameter="parola" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="TipCont" Parameter="tipCont" Type="System.String" DbType="NVarChar(20)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.DeleteUser" Method="DeleteUser">
+    <Parameter Name="ID_Utilizator" Parameter="iD_Utilizator" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+</Database>

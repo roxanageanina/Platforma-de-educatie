@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="DataClasses">
+  <DataContextMoniker Name="/DataClassesDataContext" />
+  <nestedChildShapes>
+    <classShape Id="708f4315-cec9-49b3-af5e-fa6725d94499" absoluteBounds="3.5, 0.5, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/DataClassesDataContext/Intrebari" />
+      <nestedChildShapes>
+        <elementListCompartment Id="712e7080-0c5d-46fb-b533-d0c99273bc77" absoluteBounds="3.515, 0.96, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="dba0ac86-8b53-465a-96b9-315ab93cb5a6" absoluteBounds="5.375, 4.25, 2, 1.3862939453125">
+      <DataClassMoniker Name="/DataClassesDataContext/Materii" />
+      <nestedChildShapes>
+        <elementListCompartment Id="063318a5-0b45-497b-af0c-c3328a70219b" absoluteBounds="5.3900000000000006, 4.71, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="54b5d787-e184-41fa-a66b-1a7ca834c5c8" absoluteBounds="6.875, 1.875, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/DataClassesDataContext/Raspunsuri" />
+      <nestedChildShapes>
+        <elementListCompartment Id="dcf3b9d2-6821-4802-87c7-e2d10131c486" absoluteBounds="6.89, 2.335, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(5.5 : 1.1874995); (7.875 : 1.1874995); (7.875 : 1.875)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DataClassesDataContext/Intrebari/Intrebari_Raspunsuri" />
+      <nodes>
+        <classShapeMoniker Id="708f4315-cec9-49b3-af5e-fa6725d94499" />
+        <classShapeMoniker Id="54b5d787-e184-41fa-a66b-1a7ca834c5c8" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="1eb7e3a8-d16e-499e-a85f-df1e0f281d5a" absoluteBounds="1.125, 4.375, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/DataClassesDataContext/Teste" />
+      <nestedChildShapes>
+        <elementListCompartment Id="4228e81c-dbc9-47b0-b26a-9b9d031a97bb" absoluteBounds="1.1400000000000001, 4.835, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(3.03125 : 4.375); (3.03125 : 0.65625); (3.5 : 0.65625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DataClassesDataContext/Teste/Teste_Intrebari" />
+      <nodes>
+        <classShapeMoniker Id="1eb7e3a8-d16e-499e-a85f-df1e0f281d5a" />
+        <classShapeMoniker Id="708f4315-cec9-49b3-af5e-fa6725d94499" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.375 : 5.00564697265625); (3.125 : 5.00564697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DataClassesDataContext/Materii/Materii_Teste" />
+      <nodes>
+        <classShapeMoniker Id="dba0ac86-8b53-465a-96b9-315ab93cb5a6" />
+        <classShapeMoniker Id="1eb7e3a8-d16e-499e-a85f-df1e0f281d5a" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="d92c9a7a-3092-41e3-835e-401c1aa06693" absoluteBounds="0.875, 0.875, 2, 2.3478011067708335">
+      <DataClassMoniker Name="/DataClassesDataContext/Utilizatori" />
+      <nestedChildShapes>
+        <elementListCompartment Id="6ad73cde-efc2-49a8-b0f6-a553d729579b" absoluteBounds="0.89000000000000012, 1.335, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(1.5234365 : 3.22280110677083); (1.5234365 : 4.375)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DataClassesDataContext/Utilizatori/Utilizatori_Teste" />
+      <nodes>
+        <classShapeMoniker Id="d92c9a7a-3092-41e3-835e-401c1aa06693" />
+        <classShapeMoniker Id="1eb7e3a8-d16e-499e-a85f-df1e0f281d5a" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>
